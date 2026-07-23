@@ -21,7 +21,7 @@ layers:
   - G
   - '&mkp LCLK'
   - '&mkp LCLK'
-  - H
+  - {t: H, h: '&mkp RCLK'}
   - J
   - K
   - L

@@ -50,8 +50,8 @@
          LMouse_sc: behavior_LMouse_Scroll {
            compatible = "zmk,behavior-hold-tap";
            #binding-cells = <2>;
-           flavor = "tap-preferred";     /* 单击优先 */
-           tapping-term-ms = <200>;       /* 长按阈值 */
+           flavor = "balanced";     /* 单击优先 */
+           tapping-term-ms = <300>;       /* 长按阈值 */
            bindings = <&mkp &mkp>;        /* hold=mkp, tap=mkp */
         };
     };

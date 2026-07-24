@@ -21,7 +21,7 @@ layers:
   - G
   - '&mkp LCLK'
   - '&mkp LCLK'
-  - {t: H, h: '&mkp RCLK'}
+  - H
   - J
   - K
   - L
@@ -192,7 +192,7 @@ layers:
   - G
   - '&mkp LCLK'
   - '&mkp LCLK'
-  - H
+  - '&mkp RCLK'
   - {t: J, h: '&mkp MB1'}
   - K
   - L
@@ -221,7 +221,7 @@ layers:
   - RAISE
   - SPACE
   - '&mkp MB1'
-  - {t: '&mkp MB1', h: '&mkp MB1'}
+  - '&mkp MB1'
   - '&tdRMCLK'
   - RAISE
   - MUTE

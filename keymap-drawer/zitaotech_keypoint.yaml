@@ -221,7 +221,7 @@ layers:
   - RAISE
   - SPACE
   - '&mkp MB1'
-  - '&mkp MB1'
+  - {t: '&mkp MB1', h: '&mkp MB1'}
   - '&tdRMCLK'
   - RAISE
   - MUTE

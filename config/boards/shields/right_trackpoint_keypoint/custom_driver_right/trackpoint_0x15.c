@@ -113,11 +113,11 @@ static int special_key_listener_cb(const zmk_event_t *eh) {
     const struct zmk_position_state_changed *ev = as_zmk_position_state_changed(eh);
     if (!ev)
         return 0;
-    // Arrow key mode disabled (was: position 20 = H key)
-    // if (ev->position == 20) {
-    //     arrow_key_pressed = ev->state;
-    //     LOG_INF("arrow key %s", arrow_key_pressed ? "PRESSED" : "RELEASED");
-    // }
+    // Scroll key (position 20 = H in MOUSE layer)
+    if (ev->position == 20) {
+        scroll_key_pressed = ev->state;
+        LOG_INF("scroll key position=20 %s", scroll_key_pressed ? "PRESSED" : "RELEASED");
+    }
 
     // Scroll key disabled (was: position 49 = Space)
     // if (ev->position == 49) {

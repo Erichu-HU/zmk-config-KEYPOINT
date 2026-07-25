@@ -428,7 +428,6 @@ static int trackpoint_init(const struct device *dev) {
                        TP_WORKQ_PRIORITY, NULL);
 
     gpio_pin_configure_dt(&cfg->motion_gpio, GPIO_INPUT);
-
     gpio_init_callback(&data->motion_cb_data, motion_isr, BIT(cfg->motion_gpio.pin));
     gpio_add_callback(cfg->motion_gpio.port, &data->motion_cb_data);
 

@@ -28,11 +28,11 @@
 
 LOG_MODULE_REGISTER(trackpoint, LOG_LEVEL_DBG);
 
-/* ========= ⭐ TrackPoint 专用 Work Queue ========= */
+/* ========= TrackPoint 专用 Work Queue ========= */
 #define TP_WORKQ_STACK_SIZE 2048
 #define TP_WORKQ_PRIORITY 5
 
-/* ========= ⭐ NEW: I2C Mutex ========= */
+/* ========= NEW: I2C Mutex ========= */
 static struct k_mutex trackpoint_i2c_mutex;
 
 K_THREAD_STACK_DEFINE(tp_workq_stack, TP_WORKQ_STACK_SIZE);
@@ -88,7 +88,7 @@ static uint32_t last_activity_time = 0;
 static bool scroll_key_pressed = false;
 static bool arrow_key_pressed = false;
 static bool slow_key_pressed = false;
-static bool last_scroll_key_pressed = false; // ★ NEW
+static bool last_scroll_key_pressed = false; // NEW
 static bool last_arrow_key_pressed = false;
 uint32_t last_packet_time = 0;
 
@@ -141,7 +141,7 @@ static int special_key_listener_cb(const zmk_event_t *eh) {
     //     LOG_INF("space position=49 %s", scroll_key_pressed ? "PRESSED" : "RELEASED");
     // }
 
-    // ★ NEW: Slow key
+    // NEW: Slow key
     if (ev->position == 22) {
         slow_key_pressed = ev->state;
         LOG_INF("slow_key position=37 %s", slow_key_pressed ? "PRESSED" : "RELEASED");
@@ -307,7 +307,7 @@ static void trackpoint_work_cb(struct k_work *work) {
     if (ret != 0) {
         LOG_WRN("TrackPoint I2C read failed (soft recover)");
 
-        /* ⚠️ 不 break，不 sleep，不卡住 */
+        /* 不 break，不 sleep，不卡住 */
         data->scroll_residue_x = 0;
         data->scroll_residue_y = 0;
 
@@ -400,7 +400,7 @@ static void trackpoint_work_cb(struct k_work *work) {
     k_msleep(5);
 }
 
-/* ========= ★ GPIO Interrupt ========= */
+/* ========= GPIO Interrupt ========= */
 static void motion_isr(const struct device *port, struct gpio_callback *cb, uint32_t pins) {
     struct trackpoint_data *data = CONTAINER_OF(cb, struct trackpoint_data, motion_cb_data);
 
@@ -440,7 +440,7 @@ static int trackpoint_init(const struct device *dev) {
 
     k_work_init(&data->work, trackpoint_work_cb);
 
-    /* ========= ⭐  Work Queue ========= */
+    /* =========  Work Queue ========= */
     k_work_queue_start(&tp_workq, tp_workq_stack, K_THREAD_STACK_SIZEOF(tp_workq_stack),
                        TP_WORKQ_PRIORITY, NULL);
 

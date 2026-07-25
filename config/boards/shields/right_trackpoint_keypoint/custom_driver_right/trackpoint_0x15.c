@@ -126,7 +126,7 @@ static int special_key_listener_cb(const zmk_event_t *eh) {
             pos20_press_time = k_uptime_get_32();
         } else {
             uint32_t elapsed = k_uptime_get_32() - pos20_press_time;
-            if (elapsed < POS20_TAP_MS && zmk_keymap_layer_active(MOUSE_LAYER_ID) && tp_dev) {
+            if (elapsed < POS20_TAP_MS && zmk_keymap_highest_layer_active() == MOUSE_LAYER_ID && tp_dev) {
                 input_report_key(tp_dev, 0x111, 1, true, K_FOREVER);
                 input_report_key(tp_dev, 0x111, 0, true, K_FOREVER);
             }

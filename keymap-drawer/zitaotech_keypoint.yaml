@@ -192,7 +192,7 @@ layers:
   - G
   - '&mkp LCLK'
   - '&mkp LCLK'
-  - ''
+  - '&mkp RCLK'
   - {t: J, h: '&mkp MB1'}
   - K
   - L
@@ -206,8 +206,8 @@ layers:
   - B
   - '&msc SCRL_DOWN'
   - '&msc SCRL_UP'
-  - '&mkp RCLK'
-  - '&mkp RCLK'
+  - ''
+  - ''
   - N
   - {t: M, h: '&mkp MB2'}
   - ','
